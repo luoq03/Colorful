@@ -10,8 +10,10 @@ Taken together, this code generates an interactive 3D environment with a particl
 
 Reference：https://junkiyoshi.com/
 
-https://openframeworks.cc/learning/04_sound/play_a_sound/（sound）
+https://openframeworks.cc/learning/04_sound/play_a_sound/ （sound）
 
-https://pixabay.com/sound-effects/search/mp3/(sound)
+https://pixabay.com/sound-effects/search/mp3/ (sound)
 
-https://www.color-hex.com/(hex color sheet)
+https://www.color-hex.com/ (hex color sheet)
+
+https://openframeworks.cc/learning/05_3d/3d_example_how_to/ （3D Modle）
