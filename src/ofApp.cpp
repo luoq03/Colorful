@@ -2,51 +2,66 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    
+    bikers.load("picture1.jpg");
+    myModel.loadModel("ball.dae", 200);
+   myModel.setPosition(ofGetWidth() * 0.45, (float)ofGetHeight() * 0.5 , 0);
+    myModel.setScale(0.7, 0.7, 0.7);
     mySound.load("music.mp3");
-    mySound.setVolume(1.00f);
     mySound.play();
-       hue = 0;
-    ofSetFrameRate(30);
+    hue = 0;
+    ofSetFrameRate(60);
         ofSetWindowTitle("openFrameworks");
      
-        ofBackground(239);
-        ofSetLineWidth(2);
+    ofBackground( 240);
         ofNoFill();
         ofEnableDepthTest();
         ofEnableBlendMode(ofBlendMode::OF_BLENDMODE_MULTIPLY);
-     
-        int radius = 250;
-        ofIcoSpherePrimitive ico_sphere;
-        ico_sphere = ofIcoSpherePrimitive(radius, 7);
-     
-        for (auto& triangle : ico_sphere.getMesh().getUniqueFaces()) {
-     
-            glm::vec3 avg = (triangle.getVertex(0) + triangle.getVertex(1) + triangle.getVertex(2)) / 3;
-            this->location_list.push_back(avg);
-        }
-     
+        
         ofColor color;
-        vector<int> hex_list = { 0xef476f, 0xffd166, 0x06d6a0, 0x118ab2, 0x073b4c };
+        vector<int> hex_list = { 0xE7197E, 0xf07800, 0x00A170, 0xB55A30, 0x0072B5,0xA0DAA9 };
         for (auto hex : hex_list) {
      
             color.setHex(hex);
             this->base_color_list.push_back(color);
         }
+     
+        for (int x = -300; x <= 300; x += 2) {
+     
+            this->base_location_list.push_back(glm::vec3(x, -300, -300));
+            this->base_location_list.push_back(glm::vec3(x, -300, 300));
+            this->base_location_list.push_back(glm::vec3(x, 300, -300));
+            this->base_location_list.push_back(glm::vec3(x, 300, 300));
+        }
+     
+        for (int y = -300; y <= 300; y += 2) {
+     
+            this->base_location_list.push_back(glm::vec3(-300, y, -300));
+            this->base_location_list.push_back(glm::vec3(-300, y, 300));
+            this->base_location_list.push_back(glm::vec3(300, y, -300));
+            this->base_location_list.push_back(glm::vec3(300, y, 300));
+        }
+     
+        for (int z = -300; z <= 300; z += 2) {
+     
+            this->base_location_list.push_back(glm::vec3(-300, -300, z));
+            this->base_location_list.push_back(glm::vec3(-300, 300, z));
+            this->base_location_list.push_back(glm::vec3(300, -300, z));
+            this->base_location_list.push_back(glm::vec3(300, 300, z));
+        }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    ofSoundUpdate();
     // look through all the 'particle' objects in the 'particles' vector and instruct each one to 'update' itself
     for (int i=0; i<particles.size();i++){
         particles[i].update();
     }
-    while (this->log_list.size() < 2000) {
+    int radius = 10;
+        while (this->log_list.size() < 3000) {
      
-            int font_location_index = ofRandom(this->location_list.size());
+            int font_location_index = ofRandom(this->base_location_list.size());
             vector<glm::vec3> log;
-            log.push_back(this->location_list[font_location_index]);
+            log.push_back(this->base_location_list[font_location_index]);
             this->log_list.push_back(log);
             this->color_list.push_back(this->base_color_list[(int)ofRandom(this->base_color_list.size())]);
             this->life_list.push_back(ofRandom(60, 120));
@@ -64,9 +79,8 @@ void ofApp::update(){
                 continue;
             }
      
-            int radius = 5;
-            auto deg = ofMap(ofNoise(glm::vec4(this->log_list[i].back() * 0.003, ofGetFrameNum() * 0.006)), 0, 1, -360, 360);
-            auto theta = ofMap(ofNoise(glm::vec4(this->log_list[i].back() * 0.003, (ofGetFrameNum() + 10000) * 0.006)), 0, 1, -360, 360);
+            auto deg = ofMap(ofNoise(glm::vec4(this->log_list[i].back() * 0.0035, ofGetFrameNum() * 0.006)), 0, 1, -360, 360);
+            auto theta = ofMap(ofNoise(glm::vec4(this->log_list[i].back() * 0.0035, (ofGetFrameNum() + 10000) * 0.006)), 0, 1, -360, 360);
             this->log_list[i].push_back(this->log_list[i].back() + glm::vec3(radius * cos(deg * DEG_TO_RAD) * sin(theta * DEG_TO_RAD), radius * sin(deg * DEG_TO_RAD) * sin(theta * DEG_TO_RAD), radius * cos(theta * DEG_TO_RAD)));
             while (this->log_list[i].size() > 100) {
      
@@ -77,14 +91,15 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-        ofSetColor(255);
+    //ofBackground(ofColor::black);
     
-    // look through all the 'particle' objects in the 'particles' vector and instruct each one to 'draw' itself
-    for (int i=0; i<particles.size();i++){
-        particles[i].draw();
-    }
+    // draw the original image
+    
+    bikers.draw(0, 0);
+    bikeIcon.draw(0, 0, 1024, 768);
+   // myModel.drawVertices();
     this->cam.begin();
-        ofRotateY(ofGetFrameNum() * 0.2);
+        ofRotateY(ofGetFrameNum() * 2);
      
         for (int i = 0; i < this->log_list.size(); i++) {
      
@@ -96,7 +111,7 @@ void ofApp::draw(){
             }
             else {
      
-                ofSetLineWidth(ofMap(this->life_list[i], 0, 60, 0, 10));
+                ofSetLineWidth(ofMap(this->life_list[i], 0, 50, 0, 10));
             }
      
             ofBeginShape();
@@ -104,17 +119,47 @@ void ofApp::draw(){
             ofEndShape();
         }
      
-        ofSetColor(ofRandom(180, 240));
-        ofDrawSphere(200);
-     
         this->cam.end();
+    ofSetColor(255);
+    for (int i=0; i<particles.size();i++){
+        particles[i].draw();
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if(key == 'p'){
-           mySound.play();
-       }
+            mySound.play();
+        }
+    switch (key) {
+        case 'f':
+        case 'F':
+            ofToggleFullscreen();
+            break;
+            
+        default:
+            break;
+    }
+        
+//        glm::vec3 modelPosition(ofGetWidth() * 0.6, (float)ofGetHeight() * 0.7, 0);
+//
+//
+//        switch (key) {
+//            case '1':
+//                model.loadModel("ball.dae");
+//                model.setPosition(modelPosition.x, modelPosition.y, modelPosition.z);
+//                model.setScale(0.5, 0.5, 0.5);
+//                ofEnableSeparateSpecularLight();
+//                break;
+//            case '2':
+//                model.loadModel("ball3.dae");
+//                model.setPosition(modelPosition.x, modelPosition.y, modelPosition.z);
+//                model.setScale(0.5, 0.5, 0.5);
+//                ofEnableSeparateSpecularLight();
+//                break;
+//
+//    }
+        
 }
 
 //--------------------------------------------------------------
@@ -146,7 +191,9 @@ void ofApp::mousePressed(int x, int y, int button){
 void ofApp::mouseReleased(int x, int y, int button){
 
 }
+
 //--------------------------------------------------------------
+
 particle::particle(int startX, int startY, int hue){
     // this is the constructor routine, called when we make a new object of our particle class defined in the header
     position = glm::vec2(startX, startY);

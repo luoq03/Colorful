@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxAssimpModelLoader.h"
 class particle {
 public:
     // our new particle class
@@ -20,7 +21,6 @@ public:
     ~particle();
 };
 
-
 class ofApp : public ofBaseApp{
 	public:
 		void setup();
@@ -38,14 +38,20 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-        
+    ofxAssimpModelLoader myModel;
+    
         ofEasyCam cam;
-        vector<glm::vec3> location_list;
+        ofImage img;
+        vector<glm::vec3> base_location_list;
         vector<ofColor> base_color_list;
-        ofSoundPlayer mySound;
+     
         vector<vector<glm::vec3>> log_list;
         vector<ofColor> color_list;
         vector<float> life_list;
-        vector<particle> particles;
-        int hue;
+    // define a vector containing our new particle class objects
+    vector<particle> particles;
+    ofSoundPlayer   mySound;
+    int hue;
+    ofImage bikers;
+    ofImage bikeIcon;
 };
