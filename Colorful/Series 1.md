@@ -294,7 +294,7 @@ particles[i].update();
     float brightness = color.getBrightness(); // get the current brightness of the particle's color
     float myHue = color.getHue(); // get the current hue of the particle's color
     
-    if (brightness >20){ // if the brightness is greater than 20
+>if (brightness >20){ // if the brightness is greater than 20
         color.setHue( myHue -=0.5 ); // decrease the particle's hue by 0.5
     }
 }
@@ -303,8 +303,8 @@ particles[i].update();
 
 >void particle::draw(){
    
-    ofSetColor(color); // set the color for the particle
-    ofDrawCircle(position, size); // draw the particle as a circle using its position and size
+ofSetColor(color); // set the color for the particle
+ofDrawCircle(position, size); // draw the particle as a circle using its position and size
 }
 
 Reference：https://junkiyoshi.com/
