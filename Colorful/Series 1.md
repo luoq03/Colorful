@@ -4,7 +4,7 @@
 ## code comments
 
 '''include "ofApp.h"
->void ofApp::setup(){'''
+void ofApp::setup(){'''
 
  // load the sound file
  
