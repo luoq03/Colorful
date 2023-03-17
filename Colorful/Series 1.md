@@ -4,31 +4,48 @@
 ## code comments
 #include "ofApp.h"
 
-//--------------------------------------------------------------
 >void ofApp::setup(){
- // load the sound file
->mySound.load("music.mp3");
-// set the background color to black
->ofSetBackgroundColor(0, 0, 0);
-// set the initial hue value to 0
->hue = 0;
-    // set the frame rate to 60 fps
-   > ofSetFrameRate(60);
-    // set the window title to "openframeworks"
-   > ofSetWindowTitle("openframeworks");
-    // set the background color to a light gray
-   > ofBackground(239);
-    // set the line width to 2 pixels
-   > ofSetLineWidth(2);}
 
-//--------------------------------------------------------------
-void ofApp::update(){
-    // loop through all the 'particle' objects in the 'particles' vector and instruct each one to 'update' itself
-    for (int i=0; i<particles.size();i++){
-        particles[i].update();
-    }
-    // seed the random number generator with a fixed value
-    ofSeedRandom(39);
+ // load the sound file
+ 
+>mySound.load("music.mp3");
+
+// set the background color to black
+
+>ofSetBackgroundColor(0, 0, 0);
+
+// set the initial hue value to 0
+
+>hue = 0;
+
+// set the frame rate to 60 fps
+    
+> ofSetFrameRate(60);
+   
+// set the window title to "openframeworks"
+
+> ofSetWindowTitle("openframeworks");
+
+// set the background color to a light gray
+
+> ofBackground(239);
+
+// set the line width to 2 pixels
+
+> ofSetLineWidth(2);}
+
+
+>void ofApp::update(){
+
+// loop through all the 'particle' objects in the 'particles' vector and instruct each one to 'update' itself
+
+>for (int i=0; i<particles.size();i++){
+particles[i].update();
+}
+
+// seed the random number generator with a fixed value
+
+>ofSeedRandom(39);
 }
 
 //--------------------------------------------------------------
