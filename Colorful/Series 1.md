@@ -309,5 +309,8 @@ ofDrawCircle(position, size); // draw the particle as a circle using its positio
 
 Reference：https://junkiyoshi.com/
            
-https://openframeworks.cc/learning/04_sound/play_a_sound/
+https://openframeworks.cc/learning/04_sound/play_a_sound/（sound）
  
+https://pixabay.com/sound-effects/search/mp3/(sound)
+ 
+https://www.color-hex.com/(hex color sheet)
