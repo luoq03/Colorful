@@ -2,7 +2,7 @@
 
 <img width="250" alt="截屏2023-03-17 14 03 28" src="https://user-images.githubusercontent.com/57748663/225977908-2adee9f8-629c-4765-a940-37e2341ea1bd.png">
 
-## Video Link: https://youtu.be/yHdad2Sg2N8
+## Video Link: https://youtu.be/JzbCaxB6Ha4 (With sound)
 
 Series 3 optimizes the center model based on the attempts of Series 2, using lines of random colors to create the effect that the central sphere disappears.
 
