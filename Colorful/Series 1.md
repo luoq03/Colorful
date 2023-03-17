@@ -2,7 +2,7 @@
 
 ## Series 1 was the first project where I started thinking about combining color and graphics. I saw an interesting base code on a website and modified it, adding fun and colorful mouse interactions and music to try to create a multiplicity of colors. I tried to emulate the example by adding a base image after the generated graphics, but it seemed to conflict with the previous code, causing the screen to go black. Overall it was very inspiring to me and made me more interested in creative programming.
   
-## Video link：https://youtu.be/YOxpAU45nQc (have sound)
+## Video link：https://youtu.be/YOxpAU45nQc (With sound)
 
 <img width="200" alt="截屏2023-03-17 14 23 42" src="https://user-images.githubusercontent.com/57748663/225968311-93c46573-6ea9-42d2-9b75-72026c8535e2.png">
 
