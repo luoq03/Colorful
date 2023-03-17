@@ -1,7 +1,8 @@
 # Series 1
 
+## Series 1 was the first project where I started thinking about combining color and graphics. I saw an interesting base code on a website and modified it, adding fun and colorful mouse interactions and music to try to create a multiplicity of colors. I tried to emulate the example by adding a base image after the generated graphics, but it seemed to conflict with the previous code, causing the screen to go black. Overall it was very inspiring to me and made me more interested in creative programming.
 
-## code comments
+**## code comments**
 
 >include "ofApp.h"
 void ofApp::setup(){
@@ -106,7 +107,7 @@ particles[i].update();
         
  float last_theta;
         
-        // loop through 50 iterations
+// loop through 50 iterations
        
  >for (int i = 0; i < 50; i++) {
           
