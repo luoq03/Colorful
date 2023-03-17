@@ -8,4 +8,10 @@
 The update function updates the particle's position and generates a new line by adding new points to the ends of existing line segments. The draw function draws the image and rotates the camera before drawing the line in 3D space. The color and width of the lines change according to age.
 Taken together, this code generates an interactive 3D environment with a particle system that generates lines.**
 
+Reference：https://junkiyoshi.com/
 
+https://openframeworks.cc/learning/04_sound/play_a_sound/（sound）
+
+https://pixabay.com/sound-effects/search/mp3/(sound)
+
+https://www.color-hex.com/(hex color sheet)
