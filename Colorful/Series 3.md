@@ -15,3 +15,11 @@ In the draw function, the particle system is drawn by looping through each parti
 The keyPressed function plays the sound file when the "p" key is pressed, and the mousePressed function sets a new random hue value for the particles when the mouse is clicked.
 
 The particle class is defined at the end of the program and includes functions for updating and drawing each particle. The particles are drawn as a small rectangle with a color based on the hue value passed to the constructor.
+
+Reference：https://junkiyoshi.com/
+
+https://openframeworks.cc/learning/04_sound/play_a_sound/（sound）
+
+https://pixabay.com/sound-effects/search/mp3/(sound)
+
+https://www.color-hex.com/(hex color sheet)
