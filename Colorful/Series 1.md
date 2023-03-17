@@ -1,27 +1,25 @@
 # Series 1
 
-<img width="792" alt="截屏2023-03-17 14 23 42" src="https://user-images.githubusercontent.com/57748663/225949880-ff4ebd89-088f-460b-9b5e-9ed6798bd407.png">
 
 ## code comments
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup(){
-    // load the sound file
-    mySound.load("music.mp3");
-    // set the background color to black
-    ofSetBackgroundColor(0, 0, 0);
-    // set the initial hue value to 0
-    hue = 0;
+>void ofApp::setup(){
+ // load the sound file
+>mySound.load("music.mp3");
+// set the background color to black
+>ofSetBackgroundColor(0, 0, 0);
+// set the initial hue value to 0
+>hue = 0;
     // set the frame rate to 60 fps
-    ofSetFrameRate(60);
+   > ofSetFrameRate(60);
     // set the window title to "openframeworks"
-    ofSetWindowTitle("openframeworks");
+   > ofSetWindowTitle("openframeworks");
     // set the background color to a light gray
-    ofBackground(239);
+   > ofBackground(239);
     // set the line width to 2 pixels
-    ofSetLineWidth(2);
-}
+   > ofSetLineWidth(2);}
 
 //--------------------------------------------------------------
 void ofApp::update(){
