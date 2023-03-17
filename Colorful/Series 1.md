@@ -286,9 +286,9 @@ particles[i].update();
     position += direction ; // increment the particle's position based on its direction
     direction += force; // update the particle's direction based on its force
     
- // Gradually decrease the particle's size and hue brightness
+// Gradually decrease the particle's size and hue brightness
     
- >if (size > 1){
+>if (size > 1){
         size -=0.07; // decrease the particle's size
     }
     float brightness = color.getBrightness(); // get the current brightness of the particle's color
@@ -301,7 +301,7 @@ particles[i].update();
 
 // Draw the particle with its current color and size
 
- >void particle::draw(){
+>void particle::draw(){
    
     ofSetColor(color); // set the color for the particle
     ofDrawCircle(position, size); // draw the particle as a circle using its position and size
@@ -309,5 +309,5 @@ particles[i].update();
 
 Reference：https://junkiyoshi.com/
            
-           https://openframeworks.cc/learning/04_sound/play_a_sound/
-            
+https://openframeworks.cc/learning/04_sound/play_a_sound/
+ 
